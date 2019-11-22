@@ -1,0 +1,8 @@
+<div class="container">
+  Find User by First Name: <input type="text" [(ngModel)]="firstName">
+  <button (onclick)="search()">Search</button>
+</div>
+
+<div *ngIf="response">
+  {{response.firstName}}
+</div>

@@ -1,0 +1,95 @@
+<div class="container">
+  <!-- <form [formGroup]="myForm"> -->
+
+  <!-- Value: {{myForm.value | json}}
+
+
+    <div class=[formGroup]="myForm">
+      <input type="text" placeholder="First Name" formControlName="firstName">
+    </div>
+
+    <div class="form-group">
+      <input matInput placeholder="Last Name" formControlName="lastName">
+    </div>
+
+    <div class="form-group">
+      <input matInput placeholder="Email" formControlName="email">
+    </div>
+
+    <div class="form-group">
+      <!-- <input matInput placeholder="Mobile phone" formControlName="phone"> -->
+  <form [formGroup]="userprofileForm" (ngSubmit)="onSubmit()">
+
+    Value: {{userprofileForm.value | json}}
+    <hr />
+
+    Valid?: {{userprofileForm.valid | json}}
+
+
+    <div class="form-group">
+      <input type="text" [class.is-invalid]="firstName.invalid && firstName.touched" pattern="[a-zA-Z ]*"
+        placeholder="First Name" formControlName="firstName" class="form-control" />
+      <div *ngIf="firstName.invalid && firstName.touched">
+        <small *ngIf="firstName.errors?.required" class="text-danger">*First Name is Required</small>
+        <small *ngIf="firstName.errors?.minlength" class="text-danger">*First Name must be at least 3 letters</small>
+        <small *ngIf="firstName.errors?.forbiddenName" class="text-danger">*{{firstName.errors?.forbiddenName.value}}
+          name not allowed</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input matInput [class.is-invalid]="lastName.invalid && lastName.touched" pattern="[a-zA-Z ]*"
+        placeholder=" Last Name" formControlName="lastName" class="form-control" />
+      <div *ngIf="lastName.invalid && lastName.touched">
+        <small *ngIf="lastName.errors?.required" class="text-danger">*Last Name is
+          Required</small>
+        <small *ngIf="lastName.errors?.minlength" class="text-danger">*Last Name must be a least 3 letters</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input matInput formControlName="email" [class.is-invalid]="email.invalid && email.touched" placeholder="Email"
+        formControlName="email" class="form-control" />
+      <div *ngIf="email.invalid && email.touched">
+        <small *ngIf="email.errors?.required" class="text-danger">*Email is Required</small>
+        <small *ngIf="email.errors?.email" class="text-danger">*Email must be a valid email</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input matInput placeholder="Mobile phone" formControlName="phone"
+        [class.is-invalid]="phone.invalid && phone.touched" placeholder="Mobile phone" formControlName="phone"
+        class="form-control" />
+      <div *ngIf="phone.invalid && phone.touched">
+        <small *ngIf="phone.errors?.required" class="text-danger">*Mobile phone is Required</small>
+        <small *ngIf="phone.errors?.invalidNumber" class="text-danger">*Mobile phone must be a valid 10 digit
+          number</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="password" placeholder="Password" formControlName="password" class="form-control"
+        [class.is-invalid]="userprofileForm.errors?.mismatch || password.invalid && password.touched" />
+      <div *ngIf="password.invalid && password.touched">
+        <small *ngIf="password.errors?.required" class="text-danger">*Password is required</small>
+        <small *ngIf="password.errors?.minlength" class="text-danger">*Password must be at least 6 characters</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <input type="password" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control"
+        [class.is-invalid]="userprofileForm.errors?.mismatch" />
+      <small class="text-danger" *ngIf="userprofileForm.errors?.mismatch">*Passwords do not
+        match</small>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" id="checkbox" class="form-check-input" required formControlName="subscribe" />
+      <label class="form-check-label">
+        I agree to Vilaggio's terms and conditions
+      </label>
+    </div>
+
+    <button type="submit" [disabled]="userprofileForm.invalid" (onclick)="onSubmit()">Register</button>
+  </form>
+</div>

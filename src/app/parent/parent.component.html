@@ -1,0 +1,22 @@
+<div class="total-form" style="text-align: center;">
+
+  <form novalidate [formGroup]="totalForm">
+    <p>Parent</p>
+    <div style="margin: 20px;">
+      <input type="text" placeholder='Full name' formControlName="fullName">
+    </div>
+    <label style="background-color: lightblue">
+      <div>
+        <app-sibling1 (formReady)="formInitialized('sibling1', $event)"></app-sibling1>
+      </div>
+      <div>
+        <app-child (formReady)="formInitialized('child', $event)"></app-child>
+      </div>
+    </label>
+  </form>
+
+  <h2 class='mat-h2'>Form Value</h2>
+  <div>
+    {{totalForm.value | json}}
+  </div>
+</div>

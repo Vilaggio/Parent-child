@@ -1,0 +1,20 @@
+<div style="text-align: center;">
+  <hr>
+  <h1>Send Form Data</h1>
+  <form class="form-group">
+    <label>
+      Buyer One:
+      <input type="text" [formControl]="buyerOne">
+    </label>
+    <br>
+    <label>
+      Buyer Two:
+      <input type="text" [formControl]="buyerTwo">
+    </label>
+    <br>
+    <button class='btn btn-primary' type="button" (click)="handleClick()">Submit</button>
+  </form>
+  <span>Buyer One: {{buyerOne.value}}</span>
+  <br>
+  <span>Buyer Two: {{buyerTwo.value}}</span>
+</div>

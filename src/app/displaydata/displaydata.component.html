@@ -1,0 +1,14 @@
+<div style="text-align: center;">
+  <h1>Display Data</h1>
+
+  <p>
+    1st Buyer: {{formData?.buyerOne}}
+  </p>
+  <p>
+    2nd Buyer: {{ formData?.buyerTwo }}
+  </p>
+  <button class='btn btn-primary' type="button" (click)='handleEditClick()'>Edit</button>
+  &nbsp;
+  <button class='btn btn-success' type="button" (click)='handleSubmitClick()'>Submit!</button>
+  <!-- <app-form-input *ngIf='!review' (formSubmit)='appDisplayData($event)' [formData]='formData'></app-form-input> -->
+</div>
